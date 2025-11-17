@@ -28,12 +28,11 @@ def build_exe():
         
         # Output settings
         f"--distpath={DIST_DIR}",
-        f"--buildpath={BUILD_DIR}",
+        f"--workpath={BUILD_DIR}",
         f"--specpath={PROJECT_DIR}",
         
-        # Executable name and icon
+        # Executable name
         "--name=ImageCropper",
-        f"--icon={PROJECT_DIR / 'icon.ico' if (PROJECT_DIR / 'icon.ico').exists() else 'NONE'}",
         
         # One-file distribution (single exe)
         "--onefile",
@@ -49,9 +48,6 @@ def build_exe():
         
         # Collect all data files
         "--collect-all=PIL",
-        
-        # Optimize with upx if available
-        "--upx-dir=.",
         
         # Console output during build
         "--log-level=INFO",
